@@ -23,7 +23,7 @@ export default function SearchForm({ onTripGenerated, setLoading, loading, prefi
     setError("");
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5000/generate-trip", {
+      const res = await axios.post("https://guidedaddy.onrender.com/generate-trip", {
         destination: form.destination.trim(),
         days: Number(form.days),
         budget: form.budget || "Moderate",
