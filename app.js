@@ -40,7 +40,7 @@ function cleanJSON(text) {
 app.post("/generate-trip", async (req, res) => {
   const { destination, budget, travelStyle } = req.body;
   const days = parseInt(req.body.days, 10);
-  if (!destination || !days || days < 1) return res.status(400).json({ error: "destination and valid days are required." });
+  if (!destination || !days || days < 1 || days > 5) return res.status(400).json({ error: "destination and valid days are required." });
   if (!process.env.GROQ_API_KEY) return res.status(500).json({ error: "API key not configured." });
 
   const scheduleTemplate = `[
