@@ -4,7 +4,16 @@ const cors = require("cors");
 const Groq = require("groq-sdk");
 
 const app = express();
-app.use(cors({ origin: ["http://localhost:5173","http://localhost:3000","http://localhost:5174"], methods: ["GET","POST"], allowedHeaders: ["Content-Type"] }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://localhost:5174",
+    "https://guide-daddy-pink.vercel.app"
+  ],
+  methods: ["GET","POST"],
+  allowedHeaders: ["Content-Type"]
+}));
 app.use(express.json());
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
