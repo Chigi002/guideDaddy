@@ -18,8 +18,7 @@ export default function SearchForm({ onTripGenerated, setLoading, loading, prefi
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.destination.trim()) { setError("Please enter a destination."); return; }
-   if (
+    if (
   !form.days ||
   isNaN(form.days) ||
   Number(form.days) < 1 ||
@@ -27,7 +26,7 @@ export default function SearchForm({ onTripGenerated, setLoading, loading, prefi
 ) {
   setError("Please enter between 1 and 5 days.");
   return;
-} { setError("Please enter a valid number of days."); return; }
+}
     setError("");
     setLoading(true);
     try {
