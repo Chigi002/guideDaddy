@@ -333,7 +333,7 @@ function MoodRerouter({ tripData, currentDay, onRerouted }) {
     setActiveMood(mood.id); setLoading(true);
     try {
       const s = tripData.structured;
-      const res = await axios.post("https://guidedaddy.onrender.com/reroute-day", {
+      const res = await axios.post("https://guide-daddy-vonl.onrender.com/reroute-day", {
         destination: s.destination, day: s.days[currentDay],
         mood: mood.prompt, budget: tripData.budget, travelStyle: tripData.travelStyle,
       });
@@ -539,7 +539,7 @@ function CopilotChat({ tripData }) {
     const msg = input.trim(); setInput(""); setLoading(true);
     setMessages(p => [...p, { role: "user", text: msg }]);
     try {
-      const res = await axios.post("https://guidedaddy.onrender.com/copilot", { message: msg, tripContext: tripData?.structured || {} });
+      const res = await axios.post("https://guide-daddy-vonl.onrender.com/copilot", { message: msg, tripContext: tripData?.structured || {} });
       setMessages(p => [...p, { role: "ai", text: res.data.reply }]);
     } catch { setMessages(p => [...p, { role: "ai", text: "Sorry, couldn't connect. Try again." }]); }
     setLoading(false);
